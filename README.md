@@ -17,11 +17,11 @@
 ```
 
 ```ShellSession
-[danila@Dellic ~]$ mkdir -p ${GITHUB_USERNAME}/workspace # создание каталога
-[danila@Dellic ~]$ cd ${GITHUB_USERNAME}/workspace # переход в каталог
-[danila@Dellic workspace]$  pwd #
+[danila@Dellic ~]$ mkdir -p ${GITHUB_USERNAME}/workspace # создание папки в FalaleevDanila/workspace
+[danila@Dellic ~]$ cd ${GITHUB_USERNAME}/workspace # переход в папку Перейти в папку /FalaleevDanila/workspace
+[danila@Dellic workspace]$  pwd #Вывод текущей директории
 /home/danila/FalaleevDanila/workspace
-[danila@Dellic workspace]$ cd .. #
+[danila@Dellic workspace]$ cd .. # Переход на раздел выше
 [danila@Dellic FalaleevDanila]$ pwd #
 /home/danila/FalaleevDanila
 ```
