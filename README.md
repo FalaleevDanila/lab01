@@ -11,57 +11,85 @@
 ## Tutorial
 
 ```bash
-$ export GITHUB_USERNAME=<имя_пользователя>
-$ export GIST_TOKEN=<сохраненный_токен>
-$ alias edit=<nano|vi|vim|subl>
+[danila@Dellic ~]$ export GITHUB_USERNAME=FalaleevDanila #создание переменной в окружении GITHUB_USERNAME 
+[danila@Dellic ~]$ export GIST_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX #создание переменной в окружении GIST_TOKEN
+[danila@Dellic ~]$ alias edit=nano 
 ```
 
 ```ShellSession
-$ mkdir -p ${GITHUB_USERNAME}/workspace
-$ cd ${GITHUB_USERNAME}/workspace
-$ pwd
-$ cd ..
-$ pwd
+[danila@Dellic ~]$ mkdir -p ${GITHUB_USERNAME}/workspace # создание каталога
+[danila@Dellic ~]$ cd ${GITHUB_USERNAME}/workspace # переход в каталог
+[danila@Dellic workspace]$  pwd #
+/home/danila/FalaleevDanila/workspace
+[danila@Dellic workspace]$ cd .. #
+[danila@Dellic FalaleevDanila]$ pwd #
+/home/danila/FalaleevDanila
 ```
 
 ```ShellSession
-$ mkdir -p workspace/tasks/
-$ mkdir -p workspace/projects/
-$ mkdir -p workspace/reports/
-$ cd workspace
+[danila@Dellic FalaleevDanila]$  mkdir -p workspace/tasks/ # создание каталога
+[danila@Dellic FalaleevDanila]$  mkdir -p workspace/projects/ # создание каталога
+[danila@Dellic FalaleevDanila]$ mkdir -p workspace/reports/ # создание каталога
+[danila@Dellic FalaleevDanila]$ cd workspace #
 ```
 
 ```ShellSession
-# Debian
-$ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
-$ tar -xf node-v6.11.5-linux-x64.tar.xz
-$ rm -rf node-v6.11.5-linux-x64.tar.xz
-$ mv node-v6.11.5-linux-x64 node
+[danila@Dellic workspace]$ # Debian #
+[danila@Dellic workspace]$ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz #
+--2019-03-04 18:36:04--  https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
+Загружен сертификат CA «/etc/ssl/certs/ca-certificates.crt»
+Распознаётся nodejs.org (nodejs.org)… 2606:4700:10::6814:172e, 2606:4700:10::6814:162e, 104.20.22.46, ...
+Подключение к nodejs.org (nodejs.org)|2606:4700:10::6814:172e|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 9356460 (8,9M) [application/x-xz]
+Сохранение в: «node-v6.11.5-linux-x64.tar.xz»
+
+node-v6.11.5-linux-x64.tar.xz    100%[========================================================>]   8,92M   542KB/s    за 35s     
+
+2019-03-04 18:36:41 (261 KB/s) - «node-v6.11.5-linux-x64.tar.xz» сохранён [9356460/9356460]
+
+[danila@Dellic workspace]$ tar -xf node-v6.11.5-linux-x64.tar.xz #
+[danila@Dellic workspace]$ rm -rf node-v6.11.5-linux-x64.tar.xz #
+[danila@Dellic workspace]$ mv node-v6.11.5-linux-x64 node #
 ```
 
 ```ShellSession
-$ ls node/bin
-$ echo ${PATH}
-$ export PATH=${PATH}:`pwd`/node/bin
-$ echo ${PATH}
-$ mkdir scripts
-$ cat > scripts/activate<<EOF
-export PATH=\${PATH}:`pwd`/node/bin
-EOF
-$ source scripts/activate
+[danila@Dellic workspace]$ ls node/bin #
+node  npm
+[danila@Dellic workspace]$ echo ${PATH}
+/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+[danila@Dellic workspace]$ export PATH=${PATH}:`pwd`/node/bin
+[danila@Dellic workspace]$ echo ${PATH}
+/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/danila/FalaleevDanila/workspace/node/bin
+[danila@Dellic workspace]$ mkdir scripts
+[danila@Dellic workspace]$ cat > scripts/activate<<EOF
+> export PATH=\${PATH}:`pwd`/node/bin
+> EOF
+[danila@Dellic workspace]$ source scripts/activate
 ```
 
 ```ShellSession
-$ npm install -g gistup
-$ ls node/bin
+[danila@Dellic workspace]$ npm install -g gistup
+/home/danila/FalaleevDanila/workspace/node/bin/gistup -> /home/danila/FalaleevDanila/workspace/node/lib/node_modules/gistup/bin/gistup
+/home/danila/FalaleevDanila/workspace/node/bin/gistup-open -> /home/danila/FalaleevDanila/workspace/node/lib/node_modules/gistup/bin/gistup-open
+/home/danila/FalaleevDanila/workspace/node/bin/gistup-rename -> /home/danila/FalaleevDanila/workspace/node/lib/node_modules/gistup/bin/gistup-rename
+/home/danila/FalaleevDanila/workspace/node/lib
+└─┬ gistup@0.1.3 
+  ├─┬ optimist@0.3.7 
+  │ └── wordwrap@0.0.3 
+  └── queue-async@1.2.1 
+
+[danila@Dellic workspace]$ ls node/bin
+gistup  gistup-open  gistup-rename  node  npm
 ```
 
 ```ShellSession
-$ cat > ~/.gistup.json <<EOF
-{
-  "token": "${GIST_TOKEN}"
-}
-EOF
+[danila@Dellic workspace]$ cat > ~/.gistup.json <<EOF
+> {
+>   "token": "${GIST_TOKEN}"
+> }
+> EOF
+[danila@Dellic workspace]$ 
 ```
 
 ## Report
