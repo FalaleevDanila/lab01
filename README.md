@@ -9,13 +9,13 @@
 - [ ] 3. Составить отчет и отправить ссылку личным сообщением в **Slack**
 
 ## Tutorial
-
+Установка переменных окружения, добавление синонима команды:
 ```bash
 [danila@Dellic ~]$ export GITHUB_USERNAME=FalaleevDanila #создание переменной в окружении GITHUB_USERNAME 
 [danila@Dellic ~]$ export GIST_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX #создание переменной в окружении GIST_TOKEN
 [danila@Dellic ~]$ alias edit=nano # Создаём синоним команды edit(nano)
 ```
-
+Создание папки, в которой будет находится рабочая облась:
 ```ShellSession
 [danila@Dellic ~]$ mkdir -p ${GITHUB_USERNAME}/workspace # создание папки в FalaleevDanila/workspace
 [danila@Dellic ~]$ cd ${GITHUB_USERNAME}/workspace # переход в папку /FalaleevDanila/workspace
@@ -25,14 +25,14 @@
 [danila@Dellic FalaleevDanila]$ pwd # Вывод текущей директории
 /home/danila/FalaleevDanila
 ```
-
+Создание папки в рабочей области:
 ```ShellSession
 [danila@Dellic FalaleevDanila]$  mkdir -p workspace/tasks/ # создание папки
 [danila@Dellic FalaleevDanila]$  mkdir -p workspace/projects/ # создание папки
 [danila@Dellic FalaleevDanila]$ mkdir -p workspace/reports/ # создание папки
 [danila@Dellic FalaleevDanila]$ cd workspace #  Переход в /FalaleevDanila/workspace
 ```
-
+Скачивание и распаковка node js:
 ```ShellSession
 [danila@Dellic workspace]$ # Debian 
 [danila@Dellic workspace]$ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz #  Скачать указанный файл
@@ -52,7 +52,7 @@ node-v6.11.5-linux-x64.tar.xz    100%[==========================================
 [danila@Dellic workspace]$ rm -rf node-v6.11.5-linux-x64.tar.xz # Удалить архив
 [danila@Dellic workspace]$ mv node-v6.11.5-linux-x64 node # Переименовать папку с nodejs
 ```
-
+Дописываем в PATH путь к node js:
 ```ShellSession
 [danila@Dellic workspace]$ ls node/bin # Вывод директорий и файлов в папке node/bin
 node  npm
@@ -68,7 +68,7 @@ export PATH=\${PATH}:`pwd`/node/bin
 > EOF
 [danila@Dellic workspace]$ source scripts/activate # Выполнить указанный скрипт
 ```
-
+Установка пакета gistup в node js:
 ```ShellSession
 [danila@Dellic workspace]$ npm install -g gistup # Установка пакета gistup в node js
 /home/danila/FalaleevDanila/workspace/node/bin/gistup -> /home/danila/FalaleevDanila/workspace/node/lib/node_modules/gistup/bin/gistup
@@ -83,7 +83,7 @@ export PATH=\${PATH}:`pwd`/node/bin
 [danila@Dellic workspace]$ ls node/bin # Вывод директорий и файлов из /FalaleevDanila/workspace/node/bin
 gistup  gistup-open  gistup-rename  node  npm
 ```
-
+Настройка config модуля gistup:
 ```ShellSession
 [danila@Dellic workspace]$ cat > ~/.gistup.json <<EOF # Вывод указанного текста в файл ~/.gistup.json
 {
