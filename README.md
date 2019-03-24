@@ -11,31 +11,31 @@
 ## Tutorial
 Установка переменных окружения, добавление синонима команды:
 ```bash
-[danila@Dellic ~]$ export GITHUB_USERNAME=FalaleevDanila #создание переменной в окружении GITHUB_USERNAME 
-[danila@Dellic ~]$ export GIST_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX #создание переменной в окружении GIST_TOKEN
-[danila@Dellic ~]$ alias edit=nano # Создаём синоним команды edit(nano)
+[danila@Dellic ~]$ export GITHUB_USERNAME=FalaleevDanila                      # Создание переменной в окружении GITHUB_USERNAME 
+[danila@Dellic ~]$ export GIST_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  # Создание переменной в окружении GIST_TOKEN
+[danila@Dellic ~]$ alias edit=nano                                            # Создаём синоним команды edit(nano)
 ```
 Создание папки, в которой будет находится рабочая облась:
 ```ShellSession
-[danila@Dellic ~]$ mkdir -p ${GITHUB_USERNAME}/workspace # создание папки в FalaleevDanila/workspace
-[danila@Dellic ~]$ cd ${GITHUB_USERNAME}/workspace # переход в папку /FalaleevDanila/workspace
-[danila@Dellic workspace]$  pwd #Вывод текущей директории
+[danila@Dellic ~]$ mkdir -p ${GITHUB_USERNAME}/workspace                      # Создание папки в FalaleevDanila/workspace
+[danila@Dellic ~]$ cd ${GITHUB_USERNAME}/workspace                            # Переход в папку /FalaleevDanila/workspace
+[danila@Dellic workspace]$  pwd                                               # Вывод текущей директории
 /home/danila/FalaleevDanila/workspace
-[danila@Dellic workspace]$ cd .. # Переход на раздел выше
-[danila@Dellic FalaleevDanila]$ pwd # Вывод текущей директории
+[danila@Dellic workspace]$ cd ..                                              # Переход на раздел выше
+[danila@Dellic FalaleevDanila]$ pwd                                           # Вывод текущей директории
 /home/danila/FalaleevDanila
 ```
 Создание папки в рабочей области:
 ```ShellSession
-[danila@Dellic FalaleevDanila]$  mkdir -p workspace/tasks/ # создание папки
-[danila@Dellic FalaleevDanila]$  mkdir -p workspace/projects/ # создание папки
-[danila@Dellic FalaleevDanila]$ mkdir -p workspace/reports/ # создание папки
-[danila@Dellic FalaleevDanila]$ cd workspace #  Переход в /FalaleevDanila/workspace
+[danila@Dellic FalaleevDanila]$  mkdir -p workspace/tasks/                    # Создание папки
+[danila@Dellic FalaleevDanila]$  mkdir -p workspace/projects/                 # Создание папки
+[danila@Dellic FalaleevDanila]$ mkdir -p workspace/reports/                   # Создание папки
+[danila@Dellic FalaleevDanila]$ cd workspace                                  # Переход в /FalaleevDanila/workspace
 ```
 Скачивание и распаковка node js:
 ```ShellSession
-[danila@Dellic workspace]$ # Debian 
-[danila@Dellic workspace]$ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz #  Скачать указанный файл
+[danila@Dellic workspace]$                                                                        # Debian 
+[danila@Dellic workspace]$ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz     # Скачать указанный файл
 --2019-03-04 18:36:04--  https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
 Загружен сертификат CA «/etc/ssl/certs/ca-certificates.crt»
 Распознаётся nodejs.org (nodejs.org)… 2606:4700:10::6814:172e, 2606:4700:10::6814:162e, 104.20.22.46, ...
@@ -48,29 +48,29 @@ node-v6.11.5-linux-x64.tar.xz    100%[==========================================
 
 2019-03-04 18:36:41 (261 KB/s) - «node-v6.11.5-linux-x64.tar.xz» сохранён [9356460/9356460]
 
-[danila@Dellic workspace]$ tar -xf node-v6.11.5-linux-x64.tar.xz # Разархивировать архив
-[danila@Dellic workspace]$ rm -rf node-v6.11.5-linux-x64.tar.xz # Удалить архив
-[danila@Dellic workspace]$ mv node-v6.11.5-linux-x64 node # Переименовать папку с nodejs
+[danila@Dellic workspace]$ tar -xf node-v6.11.5-linux-x64.tar.xz                                  # Разархивировать архив
+[danila@Dellic workspace]$ rm -rf node-v6.11.5-linux-x64.tar.xz                                   # Удалить архив
+[danila@Dellic workspace]$ mv node-v6.11.5-linux-x64 node                                         # Переименовать папку с nodejs
 ```
 Дописываем в PATH путь к node js:
 ```ShellSession
-[danila@Dellic workspace]$ ls node/bin # Вывод директорий и файлов в папке node/bin
+[danila@Dellic workspace]$ ls node/bin                            # Вывод директорий и файлов в папке node/bin
 node  npm
-[danila@Dellic workspace]$ echo ${PATH} # Вывод переменной окружения PATH
+[danila@Dellic workspace]$ echo ${PATH}                           # Вывод переменной окружения PATH
 /usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
-[danila@Dellic workspace]$ export PATH=${PATH}:`pwd`/node/bin # Дописать в PATH папку с node js
-[danila@Dellic workspace]$ echo ${PATH} # Вывод переменной окружения PATH
+[danila@Dellic workspace]$ export PATH=${PATH}:`pwd`/node/bin     # Дописать в PATH папку с node js
+[danila@Dellic workspace]$ echo ${PATH}                           # Вывод переменной окружения PATH
 /usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/danila/FalaleevDanila/workspace/node/bin
-[danila@Dellic workspace]$ mkdir scripts # Создать папку /FalaleevDanila/workspace/scripts
-[danila@Dellic workspace]$ cat > scripts/activate<<EOF #Запись указанной строки в файл /FalaleevDanila/workspace/scripts/activate
+[danila@Dellic workspace]$ mkdir scripts                          # Создать папку /FalaleevDanila/workspace/scripts
+[danila@Dellic workspace]$ cat > scripts/activate<<EOF            # Запись указанной строки в файл /FalaleevDanila/workspace/scripts/activate
 export PATH=\${PATH}:`pwd`/node/bin
 > export PATH=\${PATH}:`pwd`/node/bin
 > EOF
-[danila@Dellic workspace]$ source scripts/activate # Выполнить указанный скрипт
+[danila@Dellic workspace]$ source scripts/activate                # Выполнить указанный скрипт
 ```
 Установка пакета gistup в node js:
 ```ShellSession
-[danila@Dellic workspace]$ npm install -g gistup # Установка пакета gistup в node js
+[danila@Dellic workspace]$ npm install -g gistup          # Установка пакета gistup в node js
 /home/danila/FalaleevDanila/workspace/node/bin/gistup -> /home/danila/FalaleevDanila/workspace/node/lib/node_modules/gistup/bin/gistup
 /home/danila/FalaleevDanila/workspace/node/bin/gistup-open -> /home/danila/FalaleevDanila/workspace/node/lib/node_modules/gistup/bin/gistup-open
 /home/danila/FalaleevDanila/workspace/node/bin/gistup-rename -> /home/danila/FalaleevDanila/workspace/node/lib/node_modules/gistup/bin/gistup-rename
@@ -80,12 +80,12 @@ export PATH=\${PATH}:`pwd`/node/bin
   │ └── wordwrap@0.0.3 
   └── queue-async@1.2.1 
 
-[danila@Dellic workspace]$ ls node/bin # Вывод директорий и файлов из /FalaleevDanila/workspace/node/bin
+[danila@Dellic workspace]$ ls node/bin                    # Вывод директорий и файлов из /FalaleevDanila/workspace/node/bin
 gistup  gistup-open  gistup-rename  node  npm
 ```
 Настройка config модуля gistup:
 ```ShellSession
-[danila@Dellic workspace]$ cat > ~/.gistup.json <<EOF # Вывод указанного текста в файл ~/.gistup.json
+[danila@Dellic workspace]$ cat > ~/.gistup.json <<EOF     # Вывод указанного текста в файл ~/.gistup.json
 {
 > {
 >   "token": "${GIST_TOKEN}"
